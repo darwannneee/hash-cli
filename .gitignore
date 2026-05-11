@@ -1,9 +1,8 @@
 .env
-hashminer
+/hashminer
 *.o
 *.a
 *.so
 *.dylib
 *.test
 .DS_Store
-

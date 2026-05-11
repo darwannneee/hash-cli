@@ -43,8 +43,8 @@ func (m Model) page() string {
 			mode = warnStyle.Render("PAUSED")
 		}
 		return fmt.Sprintf(
-			"Status: %s\nDry run: %v\nHashrate: %.2f H/s\nAccepted: %d\nRejected: %d\nWallet: %s\nBalance wei: %s\nGPU: %s",
-			mode, s.DryRun, s.Hashrate, s.Accepted, s.Rejected, empty(s.Wallet), empty(s.BalanceWei), empty(s.GPU),
+			"Status: %s\nDry run: %v\nHashrate: %s\nAccepted: %d\nRejected: %d\nWallet: %s\nBalance: %s\nGPU: %s",
+			mode, s.DryRun, formatHashrate(s.Hashrate), s.Accepted, s.Rejected, empty(s.Wallet), formatWeiAsETH(empty(s.BalanceWei)), empty(s.GPU),
 		)
 	case "Mining":
 		return fmt.Sprintf(
@@ -92,4 +92,3 @@ func empty(value string) string {
 	}
 	return value
 }
-
